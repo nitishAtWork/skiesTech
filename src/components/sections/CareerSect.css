@@ -1,0 +1,35 @@
+.job-box {
+    -webkit-box-shadow: 0 -3px 31px 0 rgba(0, 0, 0, 0.03), 0 6px 20px 0 rgba(0, 0, 0, 0.02);
+    box-shadow: 0 -3px 31px 0 rgba(0, 0, 0, 0.03), 0 6px 20px 0 rgba(0, 0, 0, 0.02);
+    border-radius: 9px;
+    overflow: hidden;
+}
+.bg-light2 {
+    background-color: #f8f9fa !important;
+}
+.job-box .fa-user-tie,
+.job-box .fa-sack-dollar,
+.job-box .fa-briefcase,
+.job-box .fa-location-dot{
+    color: var(--primry-clr);
+    margin-right: 6px;
+}
+.job-box .fa-user-tie{
+    margin-top: 8px;
+    font-size: 42px;
+    margin-right: 15px;
+}
+.job-box .h4-tx{
+    font-size: 22px;
+    color: black;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.job-box ol li,
+.job-box ul li,
+.job-box ul{
+    list-style: numeric;
+}
+.job-box ul{
+    padding-left: 22px;
+}

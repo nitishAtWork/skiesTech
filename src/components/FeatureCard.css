@@ -1,0 +1,236 @@
+.feat-card{
+    width: 100%;
+    height: 421px;
+    /* padding: 26px; */
+    /* border-radius: 6px; */
+    overflow: hidden;
+    position: relative;
+}
+/* .feat-card::before{
+    content: '';
+    background: rgba(255, 0, 0, 0.826);
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 400ms linear;
+    z-index: 2;
+} */
+/* .feat-card.active::before,
+.feat-card:hover::before{
+    width: 100%;
+    left: unset;
+    right: 0;
+}
+.feat-card::after{
+    content: '';
+    background: url(../../public/images/bg/service-4.png);
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 400ms linear;
+    z-index: 1;
+} */
+/* .feat-card.active::after,
+.feat-card:hover::after{
+    width: 100%;
+    left: unset;
+    right: 0;
+} */
+.feat-card-content{
+    width: 100%;
+    position: relative;
+    z-index: 4;
+}
+.feat-card-content .title{
+    font-size: 19px;
+    font-weight: 600;
+    color: white;
+    transition: all 400ms linear;
+    margin: 5px 0;
+    /* text-align: end; */
+}
+.feat-card-content .feat-desc{
+    font-size: 14px;
+    color: rgb(224, 221, 221);
+    /* text-align: end; */
+    line-height: 1.1;
+    font-weight: 500;
+}
+/* .feat-card p{transition: all 400ms;}
+.feat-card:hover p,
+.feat-card.active p,
+.feat-card.active .title,
+.feat-card:hover .title{
+    color: white;
+} */
+.icn-and-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    height: 200px;
+    position: absolute;
+    left: 21px;
+    top: 21px;
+    z-index: 7;
+    background: #ececec;
+    padding: 25px;
+    border-top-left-radius: 55px ;
+    border-top-right-radius: 55px ;
+    border-bottom-left-radius: 55px ;
+}
+.brdr-shd-one{
+    border: 6px solid rgb(159, 157, 157);
+    border-top-left-radius: 55px ;
+    border-top-right-radius: 55px ;
+    border-bottom-left-radius: 55px ;
+    height: 200px;
+    width: 100%;
+    position: relative;
+    background: rgb(159, 157, 157);
+}
+.brdr-shd-two{
+    position: absolute;
+    left: -6px;
+    top: -8px;
+    padding: 0 8px;
+    border-top-left-radius: 55px ;
+    border-top-right-radius: 55px ;
+    border-bottom-left-radius: 55px ;
+    height: 150px;
+    width: 104%;
+    background: #ececec;
+}
+.icn-and-text .Icn{
+    width: 100%;
+    height: fit-content;
+    font-size: 45px;
+    transition: all 400ms linear;
+    text-align: center;
+    /* border-radius: 50%; */
+    /* line-height: 60px; */
+    /* background: rgba(255, 0, 0, 0.176);
+    color: var(--primry-clr); */
+}
+.icn-and-text .Icn img{
+    width: 80px;
+}
+.icn-and-text .Text{
+    font-size: 14px;
+    line-height: 1.21;
+    color: gray;
+    font-weight: 600;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .icn-and-text .Text{
+        font-size: 12px;
+    }
+}
+.bg-shade-one{
+    width: 70%;
+    position: absolute;
+    left: 44px;
+    top: 44px;
+    z-index: 6;
+    height: 200px;
+    border-top-left-radius: 55px ;
+    border-top-right-radius: 55px ;
+    border-bottom-left-radius: 55px ;
+}
+.bg-shade-two{
+    width: 70%;
+    position: absolute;
+    left: 74px;
+    top: 74px;
+    z-index: 5;
+    height: 330px;
+    border-top-left-radius: 55px ;
+    border-top-right-radius: 55px ;
+    border-bottom-left-radius: 55px ;
+    padding: 22px;
+    padding-top: 175px;
+    transition: all 400ms linear;
+    box-shadow: 14px 14px 1px rgb(224, 226, 224);
+}
+.card-one .bg-shade-one{
+    background: linear-gradient(45deg, #2c2b7b 0%, #af23ff 50%);
+}
+.card-one .bg-shade-two{
+    background: linear-gradient(32deg, #2c2b7b 30%,#af23ff 100% );
+}
+.card-two .bg-shade-one{
+    background: linear-gradient(45deg, #069fed 0%, var(--secondary-clr) 80%);
+}
+.card-two .bg-shade-two{
+    background: linear-gradient(32deg, #0131f5 ,#069fed );
+}
+.card-three .bg-shade-one{
+    background: linear-gradient(45deg, #00acea  0%, #02e1a0 50%);
+}
+.card-three .bg-shade-two{
+    background: linear-gradient(32deg, var(--primry-clr)  30%,#02e1a0 100% );
+}
+.feat-card:hover .bg-shade-two{
+    box-shadow: 14px 14px 1px var(--secondary-clr);
+}
+.feat-card:hover .Icn{
+    animation: animate-feat-icn 400ms linear;
+}
+@keyframes animate-feat-icn{
+    0%{ transform: scale(1) rotate(0deg);}
+    50%{ transform: scale(0) rotate(-60deg);}
+    100%{ transform: scale(1) rotate(0deg);}
+}
+.feat-card .Numb{
+    font-size: 30px;
+    line-height: 68px;
+    text-align: center;
+    font-weight: 800;
+    color: white;
+    transition: all 400ms linear;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 8;
+    border: 8px solid rgb(205, 203, 203);
+    border-radius: 50%;
+    height: 85px;
+    width: 85px;
+    background: var(--primry-clr);
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: linear-gradient(to bottom, #f7f7f8d4 0%, white 100%);
+    /* background: transparent; */
+    color: white;
+}
+/* .feat-card.active .Numb,
+.feat-card:hover .Numb{
+    -webkit-text-stroke-color:white;
+} */
+.arrow-feat{
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--primry-clr);
+    background: rgba(255, 0, 0, 0.176);
+    display: block;
+    margin: 8px 0;
+    transition: all 400ms;
+}
+.arrow-feat:hover{ animation: animate-feat-btn 400ms linear;}
+@keyframes animate-feat-btn{
+    0%{ transform: scale(1) rotate(0deg);}
+    50%{ transform: scale(1.16) rotate(-5deg);}
+    100%{ transform: scale(1) rotate(0deg);}
+}
+.feat-card:hover .arrow-feat, .feat-card.active .arrow-feat{background: white; }
