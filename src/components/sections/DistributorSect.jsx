@@ -18,7 +18,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const recaptchaRef = React.createRef();
 
-const ContactSect = () => {
+const DistributorSect = () => {
 
     const [siteInfo, setSiteInfo] = useState([]);
     const [products, setProduct] = useState([]);
@@ -92,7 +92,7 @@ const ContactSect = () => {
             return false;
         }
 
-        let result = await fetch(`${process.env.REACT_APP_BASE_URL}enquiry`,
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}enquiryDistributor`,
             {
                 method: 'POST',
                 body: JSON.stringify(data),
@@ -125,13 +125,13 @@ const ContactSect = () => {
     return (
         <>
             <Toaster position="bottom-right" />
-            <section className='sect-space bg-gry contact-container contact-container1'>
-                <div className='container'>
+            <section className='sect-space bg-gry contact-container contact-container2'>
+                <div className='container dist-cont'>
 
                     <div className='row'>
                         <div className='col-lg-7 col-md-6 conta-scls'>
-                            <SectionTitle smTitle="Contact Us" mainTitle="We look forward to serving you and meeting your healthcare needs." />
-                            {/* <p className='m-t20'>We are dedicated to providing a seamless experience for our clients, and we're here to assist you in every way we can. Whether you need assistance with product information, support, or want to meet us in person, we are easily accessible.</p> */}
+                            <SectionTitle smTitle="Become a Partner" mainTitle="Join us today and be a part of us" />
+
                             <div className='Contact_box '>
                                 <form onSubmit={handleEnquiryForm}>
                                     <div className='row'>
@@ -179,7 +179,7 @@ const ContactSect = () => {
                                         </div>
                                         <div className='col-lg-6'>
                                             <FormControl fullWidth>
-                                                <InputLabel id="demo-simple-select-label">Select Product</InputLabel>
+                                                <InputLabel id="demo-simple-select-label">Partner as</InputLabel>
                                                 <Select
                                                     error={
                                                         (error && product == '')
@@ -193,15 +193,8 @@ const ContactSect = () => {
                                                     name='product'
                                                 // onChange={handleChange}
                                                 >
-                                                    {
-                                                        products
-                                                            ?
-                                                            products.map((value, index) =>
-                                                                <MenuItem key={index} value={value.name}>{value.name}</MenuItem>
-                                                            )
-                                                            :
-                                                            null
-                                                    }
+                                                    <MenuItem value="1">Distributor</MenuItem>
+                                                    <MenuItem value="1">Dealer</MenuItem>
                                                 </Select>
                                             </FormControl>
 
@@ -219,6 +212,9 @@ const ContactSect = () => {
                                                 label="Company Name"
                                                 name='companyName'
                                                 type='text' />
+                                        </div>
+                                        <div className='col-12'>
+                                            <TextField label="Gst Number" name='gstno' type='text' />
                                         </div>
                                         <div className='col-12'>
                                             <TextField label="Address" name='address' type='text' />
@@ -283,4 +279,4 @@ const ContactSect = () => {
     )
 }
 
-export default ContactSect
+export default DistributorSect

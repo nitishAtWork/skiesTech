@@ -30,11 +30,11 @@ const WhyChoose = () => {
                     </div>
                     <div class="funfact-number d-flex align-items-center justify-content-center">
                       <div className='count-text'>
-                        <CountUp end={500} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
+                        <CountUp end={250} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
                       </div>
                     </div>
                     <div class="funfact-text">
-                      <span>Happy Clients</span>
+                      <span>Our Partners</span>
                     </div>
                   </div>
                 </div>
@@ -48,11 +48,11 @@ const WhyChoose = () => {
                     </div>
                     <div class="funfact-number d-flex align-items-center justify-content-center">
                       <div className='count-text'>
-                        <CountUp end={500} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
+                        <CountUp end={300} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
                       </div>
                     </div>
                     <div class="funfact-text">
-                      <span>Happy Clients</span>
+                      <span>Team Members</span>
                     </div>
                   </div>
                 </div>
@@ -66,7 +66,7 @@ const WhyChoose = () => {
                     </div>
                     <div class="funfact-number d-flex align-items-center justify-content-center">
                       <div className='count-text'>
-                        <CountUp end={500} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
+                        <CountUp end={450} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
                       </div>
                     </div>
                     <div class="funfact-text">
@@ -84,11 +84,11 @@ const WhyChoose = () => {
                     </div>
                     <div class="funfact-number d-flex align-items-center justify-content-center">
                       <div className='count-text'>
-                        <CountUp end={500} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
+                        <CountUp end={50} enableScrollSpy scrollSpyOnce="true" /> <span>+</span>
                       </div>
                     </div>
                     <div class="funfact-text">
-                      <span>Happy Clients</span>
+                      <span>Awards Won</span>
                     </div>
                   </div>
                 </div>

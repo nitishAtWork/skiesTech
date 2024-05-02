@@ -1,7 +1,6 @@
 import { React } from 'react';
 import SectionTitle from '../SectionTitle';
 import { Parser } from 'html-to-react'
-import QuickHelpCard from '../QuickHelpCard';
 
 const ProductDetailSect = (props) => {
 

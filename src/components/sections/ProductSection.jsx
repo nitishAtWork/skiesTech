@@ -37,6 +37,7 @@ const ProductSection = () => {
                 servPrice={value.price}
                 servLink={'/' + value.slug}
                 servImg={value.img}
+                Pdf={'/images/pdf/' +value.pdf}
               />
             </div>
               )

@@ -1,9 +1,6 @@
 import React, { lazy, Suspense } from 'react';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css'
+import PreLoader from './components/sections/PreLoader';
 import { BrowserRouter } from 'react-router-dom';
-// import AdminLayout from './layouts/AdminLayout';
-// import SiteLayout from './layouts/SiteLayout';
 const AdminLayout = lazy(() => import('./layouts/AdminLayout'));
 const SiteLayout = lazy(() => import('./layouts/SiteLayout'));
 
@@ -14,12 +11,12 @@ function App() {
         window.location.href.includes('admin') || window.location.href.includes('login')
           ?
           <Suspense
-            fallback={<SkeletonTheme baseColor="#f5f4f4" highlightColor="#cfcece"> <p> <Skeleton count={31} /> </p> </SkeletonTheme>}>
+            fallback={<PreLoader />}>
             <AdminLayout />
           </Suspense>
           :
           <Suspense
-            fallback={<SkeletonTheme baseColor="#f5f4f4" highlightColor="#cfcece"> <p> <Skeleton count={31} /> </p> </SkeletonTheme>}>
+            fallback={<PreLoader />}>
             <SiteLayout />
           </Suspense>
       }

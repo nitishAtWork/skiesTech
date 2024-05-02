@@ -11,29 +11,61 @@ import PhoneForwardedIcon from '@mui/icons-material/PhoneForwarded';
 import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 import ScrollToTop from 'react-scroll-to-top';
 import { useLocation } from 'react-router-dom';
+import { Parser } from 'html-to-react'
 
 
 
 const Footer = () => {
     const [siteInfo, setSiteInfo] = useState([]);
+    const [visitorCount, setVisitorCount] = useState(siteInfo.visitorCount + 1);
     const { pathname } = useLocation();
 
-    // useEffect(() => {
-    //     getSiteInfo();
-    // }, [])
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        getSiteInfo();
-    }, [pathname]);
+    // const [count, setCount] = useState(0);
+
+    // useEffect(() => {
+    // const storedCount = siteInfo.visitorCount;
+    // const initialCount = storedCount ? siteInfo.visitorCount : 0;
+    // setCount(initialCount + 1);
+    // siteInfo.setSiteInfo("visitorCount", visitorCount + 1);
+
+    // }, []);
 
     const getSiteInfo = async () => {
         let result = await fetch(`${process.env.REACT_APP_BASE_URL}siteInfo`);
         result = await result.json();
         if (result.status) {
+            const url = process.env.REACT_APP_BASE_URL + "adminUpdateSiteInfo";
+            fetch(
+                url,
+                {
+                    method: "POST",
+                    body: JSON.stringify({ 'visitorCount': result.siteInfo.visitorCount + 1 }),
+                    headers: { 'Content-Type': 'application/json' },
+                }
+            );
             setSiteInfo(result.siteInfo);
         }
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        getSiteInfo();
+        // setVisitorCount(visitorCount + 1);
+        // const url = process.env.REACT_APP_BASE_URL + "adminUpdateSiteInfo";
+        // fetch(
+        //     url,
+        //     {
+        //         method: "POST",
+        //         body: JSON.stringify({ 'visitorCount': visitorCount }),
+        //         headers: { 'Content-Type': 'application/json' },
+        //     }
+        // );
+    }, []);
+
+
+
+
 
     const actions = [
         { icon: <PhoneForwardedIcon />, name: 'Call Now', href: 'tel:' + siteInfo.primaryPhone },
@@ -60,7 +92,9 @@ const Footer = () => {
                                 <div className='ft-logo-box'>
                                     <Link to={'/'}><img src={process.env.REACT_APP_BASE_URL + 'images/' + siteInfo.logo} alt={siteInfo.compName} title={siteInfo.compName} /></Link>
                                 </div>
-                                <p className='ft-text'>We as the major I.V. Infusion Set Suppliers in Pune have many medical items like I.V. Infusion Set, Blood Administration Set, Ryles Tube, Twin Bore Nasal Oxygen Set, Yankauer Suction Set, Umbilical Cord Clamp, Infusion Set, IV Set, Blood Administration Set, Disposable Medical Devices, so you can find the right item for you. the items available are made with high-quality materials so don't worry about it. we also provide a guide where some instructions are written so you do not get confused about the usage.</p>
+                                <p className='ft-text'>
+                                    <p>{Parser().parse(siteInfo.footerText)}</p>
+                                </p>
                                 <div className="colored-scls ">
                                     <Socials data={siteInfo} />
                                 </div>
@@ -71,45 +105,23 @@ const Footer = () => {
                                         <p className='title-ft'>Useful Links: - </p>
                                         <ul className='links'>
                                             <li><Link to="/">Home</Link></li>
-                                            <li><span>/</span><Link to="/services">Services</Link></li>
+                                            <li><span>/</span><Link to="/products">Products</Link></li>
                                             <li><span>/</span><Link to="/company-profile">Company Profile</Link></li>
                                             <li><span>/</span><Link to="/sitemap">Sitemap</Link></li>
                                             <li><span>/</span><Link to="/market-place">Market Place</Link></li>
                                             <li><span>/</span><Link to="/contact">Contact Us</Link></li>
+                                            <li><span>/</span><Link to="/career">Career</Link></li>
+                                            <li><span>/</span><Link to="/partner">Join Us</Link></li>
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
-                            {/* <div className='col-lg-4 col-md-6 m-t40'>
-                                <div className='footer-widget'>
-                                    <p className='title-ft'>Contact Info</p>
-
-                                    <div className='contacts-box m-t30'>
-                                        <div className='cont-icn'><i className="fa-solid fa-phone-volume"></i></div>
-                                        <div className='conta-links'>
-                                            <span className='title'>Phone</span>
-                                            <a href={"tel:" + siteInfo.primaryPhone}>{siteInfo.primaryPhone}</a>
-                                        </div>
+                                <div className='footer-widget mt-5'>
+                                    <div className="flex-a-c">
+                                        <p className='visitors-text'>Visitors: <span>{siteInfo.visitorCount}</span></p>
                                     </div>
-                                    <div className='contacts-box'>
-                                        <div className='cont-icn'><i className="fa-solid fa-envelope-open-text"></i></div>
-                                        <div className='conta-links'>
-                                            <span className='title'>Email</span>
-                                            <a href={"mailto:" + siteInfo.primaryMail}>{siteInfo.primaryMail}</a>
-                                        </div>
-                                    </div>
-                                    <div className='contacts-box'>
-                                        <div className='cont-icn'><i className="fa-solid fa-map-location-dot"></i></div>
-                                        <div className='conta-links'>
-                                            <span className='title'>Address</span>
-                                            <span>{siteInfo.primaryAddress}</span>
-                                        </div>
-
-                                    </div>
-                                   
-
                                 </div>
-                            </div> */}
+                            </div>
+
 
                         </div>
                     </div>
@@ -117,7 +129,7 @@ const Footer = () => {
                         <div className='container'>
                             <div className='row'>
                                 <div className='col-md-12 '>
-                                    <div className='copy-right-text'><span>Copyright © 2024. Powered By </span><a href="https://www.instavyapar.com" target='_blank'>Insta Vyapar</a></div>
+                                    <div className='copy-right-text'><span>Copyright © 2023 by Skiestech | Website Designed & Promoted by Insta Vyapar</span><a href="https://www.instavyapar.com/our-services/digital-marketing/google-promotion.html" target='_blank'>Google Promotion Services in India</a></div>
                                 </div>
                             </div>
                         </div>
@@ -125,6 +137,39 @@ const Footer = () => {
                 </div>
             </footer>
             <div className='Scroll-top-btn'> <ScrollToTop smooth /></div>
+
+            {/* <div className="preloader">
+                <div class="pl">
+                    <div class="pl__bars">
+                        <div class="pl__bar">
+                            <div class="pl__bar-s"></div>
+                            <div class="pl__bar-t"></div>
+                            <div class="pl__bar-l"></div>
+                            <div class="pl__bar-r"></div>
+                        </div>
+                        <div class="pl__bar">
+                            <div class="pl__bar-s"></div>
+                            <div class="pl__bar-t"></div>
+                            <div class="pl__bar-l"></div>
+                            <div class="pl__bar-r"></div>
+                        </div>
+                        <div class="pl__bar">
+                            <div class="pl__bar-s"></div>
+                            <div class="pl__bar-t"></div>
+                            <div class="pl__bar-l"></div>
+                            <div class="pl__bar-r"></div>
+                        </div>
+                        <div class="pl__bar">
+                            <div class="pl__bar-s"></div>
+                            <div class="pl__bar-t"></div>
+                            <div class="pl__bar-l"></div>
+                            <div class="pl__bar-r"></div>
+                        </div>
+                    </div>
+                </div>
+                <img src={process.env.REACT_APP_BASE_URL + 'images/' + siteInfo.logo} alt={siteInfo.compName} title={siteInfo.compName} />
+            </div> */}
+
             {/* <SpeedDial
                 ariaLabel="SpeedDial basic example"
                 sx={{ position: 'fixed', bottom: 54, left: 26 }}

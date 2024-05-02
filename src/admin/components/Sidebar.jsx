@@ -16,6 +16,7 @@ import ReviewsIcon from '@mui/icons-material/Reviews';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 // import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 
 function Sidebar() {
     const location = useLocation();
@@ -110,6 +111,13 @@ function Sidebar() {
             link: '/admin/lead',
             hasChildren: false,
             addClass: location.pathname === "/admin/lead" ? "active mb-2 border rounded" : ""
+        },
+        {
+            name: 'Jobs',
+            icon: <WorkHistoryIcon />,
+            link: '/admin/jobs',
+            hasChildren: false,
+            addClass: location.pathname === "/admin/jobs" ? "active mb-2 border rounded" : ""
         },
 
         // {

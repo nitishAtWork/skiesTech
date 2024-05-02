@@ -95,6 +95,15 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    line-height: 19px !important;
+}
+.service-name-title p,
+.service-name-title strong{
+    font-size: 13px !important;
+    color: gray !important;
+    font-weight: 600 !important;
+    line-height: 22px !important;
+    text-align: start !important;
 }
 .pd-Titl{
     font-size: 13px;

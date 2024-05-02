@@ -42,6 +42,7 @@ const MenuList = (props) => {
 
             <li ><Link onClick={closeMenu} to="/contact"> <span>Contact</span> </Link></li>
             <li ><Link onClick={closeMenu} to="/career"> <span>Career</span> </Link></li>
+            <li ><Link onClick={closeMenu} to="/partner"> <span>Partner</span> </Link></li>
         </ul>
     )
 }

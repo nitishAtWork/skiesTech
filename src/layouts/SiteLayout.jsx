@@ -1,11 +1,11 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css'
 import { Routes, Route } from 'react-router-dom';
+import PreLoader from '../components/sections/PreLoader';
 import '../App.css';
 const About = lazy(() => import('../pages/About'));
 const Home = lazy(() => import('../pages/Home'));
 const Contact = lazy(() => import('../pages/Contact'));
+const Distributor = lazy(() => import('../pages/Distributor'));
 const Career = lazy(() => import('../pages/Career'));
 const Sitemap = lazy(() => import('../pages/Sitemap'));
 const MarketPlace = lazy(() => import('../pages/MarketPlace'));
@@ -48,19 +48,20 @@ function SiteLayout() {
     <>
       {/* <Nav></Nav> */}
       <Routes>
-        <Route path='/' element={<Suspense fallback={<Skeleton count={30} />}><Home /></Suspense>} />
-        <Route path='/products' element={<Suspense fallback={<Skeleton count={30} />}><Products /></Suspense>} />
-        <Route path='/company-profile' element={<Suspense fallback={<Skeleton count={30} />}><About /></Suspense>} />
-        <Route path='/contact' element={<Suspense fallback={<Skeleton count={30} />}><Contact /></Suspense>} />
-        <Route path='/career' element={<Suspense fallback={<Skeleton count={30} />}><Career /></Suspense>} />
-        <Route path='/sitemap' element={<Suspense fallback={<Skeleton count={30} />}><Sitemap /></Suspense>} />
-        <Route path='/market-place' element={<Suspense fallback={<Skeleton count={30} />}><MarketPlace /></Suspense>} />
+        <Route path='/' element={<Suspense fallback={<PreLoader />}><Home /></Suspense>} />
+        <Route path='/products' element={<Suspense fallback={<PreLoader />}><Products /></Suspense>} />
+        <Route path='/company-profile' element={<Suspense fallback={<PreLoader />}><About /></Suspense>} />
+        <Route path='/contact' element={<Suspense fallback={<PreLoader />}><Contact /></Suspense>} />
+        <Route path='/partner' element={<Suspense fallback={<PreLoader />}><Distributor /></Suspense>} />
+        <Route path='/career' element={<Suspense fallback={<PreLoader />}><Career /></Suspense>} />
+        <Route path='/sitemap' element={<Suspense fallback={<PreLoader />}><Sitemap /></Suspense>} />
+        <Route path='/market-place' element={<Suspense fallback={<PreLoader />}><MarketPlace /></Suspense>} />
         <Route path='/google35da33f130a69c13.html' element="google-site-verification: google35da33f130a69c13.html" />
         {
           products
             ?
             products.map((value, index) =>
-              <Route key={index} path={'/' + value.slug} element={<Suspense fallback={<Skeleton count={15} />}><ProductDetail slug={value.slug} /></Suspense>} />
+              <Route key={index} path={'/' + value.slug} element={<Suspense fallback={<PreLoader />}><ProductDetail slug={value.slug} /></Suspense>} />
             )
             :
             null
@@ -73,7 +74,7 @@ function SiteLayout() {
                 <Route
                   key={index}
                   path={'/' + value.slug}
-                  element={<Suspense fallback={<Skeleton count={15} />}><ProductList slug={value.slug} /></Suspense>}
+                  element={<Suspense fallback={<PreLoader />}><ProductList slug={value.slug} /></Suspense>}
                 />
                 {
                   products
@@ -82,7 +83,7 @@ function SiteLayout() {
                       <Route
                         key={key}
                         path={'/' + value.slug + "/" + item.slug}
-                        element={<Suspense fallback={<Skeleton count={15} />}><Subdomain categorySlug={value.slug} productSlug={item.slug} /></Suspense>}
+                        element={<Suspense fallback={<PreLoader />}><Subdomain categorySlug={value.slug} productSlug={item.slug} /></Suspense>}
                       />
                     )
                     :
@@ -98,7 +99,7 @@ function SiteLayout() {
             ?
             locations.map((value, index) =>
               <>
-                <Route key={index} path={'/' + value.parentSlug} element={<Suspense fallback={<Skeleton count={15} />}><OurPresenceInCity slug={value.parentSlug} /></Suspense>} />
+                <Route key={index} path={'/' + value.parentSlug} element={<Suspense fallback={<PreLoader />}><OurPresenceInCity slug={value.parentSlug} /></Suspense>} />
                 {
                   products
                     ?
@@ -107,7 +108,7 @@ function SiteLayout() {
                         key={key}
                         path={'/' + value.parentSlug + '/' + item.slug}
                         element={
-                          <Suspense fallback={<Skeleton count={15} />}>
+                          <Suspense fallback={<PreLoader />}>
                             <KeywordInCity
                               locationSlug={value.parentSlug}
                               productSlug={item.slug}
@@ -123,7 +124,7 @@ function SiteLayout() {
                   value.cities.map((item, key) =>
                     <>
                       <Route key={key} path={'/' + item.slug} element={
-                        <Suspense fallback={<Skeleton count={15} />}>
+                        <Suspense fallback={<PreLoader />}>
                           <OurPresenceInCity slug={item.slug} />
                         </Suspense>
                       } />
@@ -135,7 +136,7 @@ function SiteLayout() {
                               key={i}
                               path={'/' + item.slug + '/' + val.slug}
                               element={
-                                <Suspense fallback={<Skeleton count={15} />}>
+                                <Suspense fallback={<PreLoader />}>
                                   <KeywordInCity
                                     locationSlug={item.slug}
                                     productSlug={val.slug}

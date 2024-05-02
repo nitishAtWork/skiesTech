@@ -3,7 +3,7 @@ import './ProductCard.css';
 import { Link } from 'react-router-dom';
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import BtnLink from './BtnLink';
+import PdfBtn from './PdfBtn';
 
 const ProductCard = (props) => {
 
@@ -40,7 +40,7 @@ const ProductCard = (props) => {
         <div className='service-content'>
           <Link className='service-name' to={props.servLink}>{props.productName}</Link>
           <span className='service-name-title' >{props.servDesc}</span>
-          <BtnLink Href={props.servLink} btnName="View Details" />
+          <PdfBtn  Href={props.Pdf} btnName="Download IFU" />
         </div>
       </div>
 

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css'
+// import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+// import 'react-loading-skeleton/dist/skeleton.css'
 import Nav from '../components/nav/Nav';
+import PreLoader from '../components/sections/PreLoader';
 // import HomeBanner from '../components/sections/HomeBanner';
 import FeaturesSect from '../components/sections/FeaturesSect';
 import StepsSect from '../components/sections/StepsSect';
@@ -39,36 +40,18 @@ const Home = () => {
     <>
       {/* <HelmetComp metaData={homeData} /> */}
       <Nav />
-      <Suspense fallback={<SkeletonTheme baseColor="#f5f4f4" highlightColor="#cfcece"> <p> <Skeleton count={31} /> </p> </SkeletonTheme>}>
+      <Suspense fallback={ <PreLoader />}>
         <HomeBanner />
       </Suspense>
       <WhyChoose />
-      <Suspense fallback={<Skeleton count={24} />}>
+      <Suspense fallback={<PreLoader />}>
         <CompanyProfile pageData={homeData} homeTitle={homeData.shortDescription} />
       </Suspense>
-      <Suspense fallback={<Skeleton count={10} />}>
+      <Suspense fallback={<PreLoader />}>
         <ProductSection />
       </Suspense>
-      {/* <Suspense fallback={<Skeleton count={10} />}>
-        <ProductSlider />
-      </Suspense> */}
       <Testimonial />
       <ContactSect />
-      {/* <Suspense fallback={<Skeleton count={5} />}>
-        <WelcomeText />
-      </Suspense>
-      <Suspense fallback={<Skeleton count={10} />}>
-        <ProductSlider />
-      </Suspense>
-      <Suspense fallback={<Skeleton count={24} />}>
-        <CompanyProfile pageData={homeData} homeTitle={homeData.shortDescription} />
-      </Suspense> */}
-      {/* <Suspense fallback={<Skeleton count={21} />}>
-        <FeaturesSect />
-        <WhyChoose />
-        <StepsSect />
-        <ContactSect />
-      </Suspense> */}
       <Footer />
 
     </>

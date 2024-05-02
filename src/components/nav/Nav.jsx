@@ -18,10 +18,29 @@ const Nav = (props) => {
     const [isOpen, setIsopen] = useState(false);
     const [siteInfo, setSiteInfo] = useState([]);
 
+    const googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement(
+            {
+                pageLanguage: "en",
+                autoDisplay: false
+            },
+            "google_translate_element"
+        );
+    };
+
     useEffect(() => {
         getCategories();
         getSiteInfo();
+        var addScript = document.createElement("script");
+        addScript.setAttribute(
+            "src",
+            "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        );
+        document.body.appendChild(addScript);
+        window.googleTranslateElementInit = googleTranslateElementInit;
+       
     }, []);
+    
 
     const getSiteInfo = async () => {
         let result = await fetch(`${process.env.REACT_APP_BASE_URL}siteInfo`);
@@ -58,20 +77,23 @@ const Nav = (props) => {
                             <div className="header-topbar-content">
                                 {/* socials */}
                                 <div className="cstm-socials">
-                                        <Socials data={siteInfo} />
+                                    <Socials data={siteInfo} />
                                 </div>
 
                                 <div className="cstm-contact-infos">
-                                        <ul>
-                                            <li><PhoneInTalkIcon /><a href={"tel:" + siteInfo.primaryPhone}>{siteInfo.primaryPhone}</a></li>
-                                            <li><ForwardToInboxIcon /><a href={"mailto:" + siteInfo.primaryMail}>{siteInfo.primaryMail}</a>
-                                            </li>
-                                        </ul>
+                                    <ul>
+                                        <li><PhoneInTalkIcon /><a href={"tel:" + siteInfo.primaryPhone}>{siteInfo.primaryPhone}</a></li>
+                                        <li><ForwardToInboxIcon /><a href={"mailto:" + siteInfo.primaryMail}>{siteInfo.primaryMail}</a>
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div className='Language-bx'>
-                                    <span><LanguageIcon />Language</span>
+                                    <span className='Language-bx-flex' >
+                                        <LanguageIcon />
+                                        <div id="google_translate_element"></div>
+                                    </span>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -91,12 +113,12 @@ const Nav = (props) => {
                                     <MenuList data={props.data} categories={categories} closeMenu={setIsopen} />
                                 </div>
                                 <span onClick={toggleSidenav} className='menuBtn'><i className="fa-solid fa-bars-staggered"></i></span>
-                                <BtnLink Href="/contact" addClass='' btnName="Request Quote" />
+                                <BtnLink Href="/partner" addClass='' btnName="Become Partner" />
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </nav>
             {/* menu for mobile*/}
             <div className={isOpen ? 'phone-nav-overlay active' : 'phone-nav-overlay'}>

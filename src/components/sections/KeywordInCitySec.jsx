@@ -1,6 +1,5 @@
 import React from 'react'
 import SectionTitle from '../SectionTitle';
-import QuickHelpCard from '../QuickHelpCard';
 import { Parser } from 'html-to-react'
 
 function KeywordInCitySec(props) {

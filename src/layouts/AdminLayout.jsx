@@ -25,6 +25,8 @@ import LocationData from '../admin/pages/LocationData';
 import ParentLocation from '../admin/pages/ParentLocation';
 import ParentLocationData from '../admin/pages/ParentLocationData';
 import Lead from '../admin/pages/Lead';
+import Jobs from '../admin/pages/Jobs';
+import JobsData from '../admin/pages/JobsData';
 
 function SiteLayout() {
     return (
@@ -69,6 +71,10 @@ function SiteLayout() {
                 <Route path='/admin/parentLocation/data/:_id' element={<ParentLocationData />} />
 
                 <Route path='/admin/lead' element={<Lead />} />
+
+                <Route path='/admin/jobs' element={<Jobs />} />
+                <Route path='/admin/jobs/data' element={<JobsData />} />
+                <Route path='/admin/jobs/data/:_id' element={<JobsData />} />
             </Route>
 
             <Route path='/login' element={<Login />} />

@@ -18,6 +18,7 @@ function ProductData() {
     const [name, setName] = useState('');
     const [categoryId, setCategoryId] = useState('');
     const [img, setImg] = useState('');
+    const [pdf, setPdf] = useState('');
     const [icon, setIcon] = useState('');
     const [price, setPrice] = useState('');
     const [shortDescription, setShortDescription] = useState('');
@@ -150,6 +151,9 @@ function ProductData() {
                                 </div>
                                 <div className='col-12'>
                                     <AddData changeFunction={setImg} Label="Product Image" name="img" inputType="file" />
+                                </div>
+                                <div className='col-12'>
+                                    <AddData changeFunction={setPdf} Label="Instruction Pdf" name="pdf" inputType="file" />
                                 </div>
                                 <div className='col-12'>
                                     <AddData changeFunction={setIcon} Label="Product Icon" name="icon" inputType="file" />

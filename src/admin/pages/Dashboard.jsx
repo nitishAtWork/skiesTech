@@ -14,6 +14,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 
 function Dashboard() {
 
@@ -101,6 +102,12 @@ function Dashboard() {
             'heading': dashboard.leadCount,
             'icon': <LeaderboardIcon className='fs-1' />,
             'link': '/admin/lead'
+        },
+        {
+            'title': 'Jobs',
+            'heading': dashboard.jobsCount,
+            'icon': <WorkHistoryIcon className='fs-1' />,
+            'link': '/admin/jobs'
         }
     ];
 
