@@ -26,6 +26,8 @@ const ContactSect = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [gstNumber, setGstNumber] = useState('');
+    const [address, setAddress] = useState('');
     const [product, setEnquiryProduct] = useState('');
     const [companyName, setCompanyName] = useState('');
 
@@ -75,7 +77,7 @@ const ContactSect = () => {
             data.name === '' ||
             data.phone === '' ||
             data.email === '' ||
-            data.companyName === '' ||
+            // data.companyName === '' ||
             data.product === ''
         ) {
             setError(true);
@@ -130,10 +132,10 @@ const ContactSect = () => {
 
                     <div className='row'>
                         <div className='col-lg-7 col-md-6 conta-scls'>
-                            <SectionTitle smTitle="Contact Us" mainTitle="We look forward to serving you and meeting your healthcare needs." />
-                            {/* <p className='m-t20'>We are dedicated to providing a seamless experience for our clients, and we're here to assist you in every way we can. Whether you need assistance with product information, support, or want to meet us in person, we are easily accessible.</p> */}
+                            <SectionTitle smTitle="Contact Us" mainTitle="We Look Forward To Serving You And Meeting Your Healthcare Needs." />
                             <div className='Contact_box '>
                                 <form onSubmit={handleEnquiryForm}>
+                                 <input type="hidden" name='currenturl' value={window.location.href} />
                                     <div className='row'>
                                         <div className='col-lg-6'>
                                             <TextField
@@ -208,20 +210,45 @@ const ContactSect = () => {
                                         </div>
                                         <div className='col-12'>
                                             <TextField
-                                                error={
-                                                    (error && companyName == '')
-                                                        ?
-                                                        true
-                                                        :
-                                                        false
-                                                }
+                                                // error={
+                                                //     (error && gstNumber == '')
+                                                //         ?
+                                                //         true
+                                                //         :
+                                                //         false
+                                                // }
+                                                onChange={e => setGstNumber(e.target.value)}
+                                                label="Gst Number"
+                                                name='gstNumber'
+                                                type='text' />
+                                        </div>
+                                        <div className='col-12'>
+                                            <TextField
+                                                // error={
+                                                //     (error && companyName == '')
+                                                //         ?
+                                                //         true
+                                                //         :
+                                                //         false
+                                                // }
                                                 onChange={e => setCompanyName(e.target.value)}
                                                 label="Company Name"
                                                 name='companyName'
                                                 type='text' />
                                         </div>
                                         <div className='col-12'>
-                                            <TextField label="Address" name='address' type='text' />
+                                            <TextField 
+                                                // error={
+                                                //     (error && address == '')
+                                                //         ?
+                                                //         true
+                                                //         :
+                                                //         false
+                                                // }
+                                                onChange={e => setAddress(e.target.value)}
+                                              label="Address"
+                                              name='address'
+                                              type='text' />
                                         </div>
                                         <div className='col-12'>
                                             <TextField multiline rows={3} label="Write any message..." name='message' type='text' />
@@ -229,7 +256,7 @@ const ContactSect = () => {
                                         <div className='col-12 mb-2'>
                                             <ReCAPTCHA
                                                 ref={recaptchaRef}
-                                                sitekey="6LfVBawpAAAAABKJjqc48n3_mncEVRj7aWEWCeZk"
+                                                sitekey="6LfCLH0pAAAAAEMBIU7x08eUAsRUXDlQt4oNHsYL"
                                             // onChange={onChange}
                                             />
                                         </div>
@@ -265,6 +292,7 @@ const ContactSect = () => {
                                 <p className="head-add">Email</p>
                                     <a href={"mailto:" + siteInfo.primaryMail}><MarkEmailUnreadOutlinedIcon /> {siteInfo.primaryMail}</a>
                                     <a href={"mailto:" + siteInfo.secondaryMail}><MarkEmailUnreadOutlinedIcon /> {siteInfo.secondaryMail} </a>
+                                    <a href={"mailto:" + siteInfo.thirdMail}><MarkEmailUnreadOutlinedIcon /> {siteInfo.thirdMail} </a>
                                 </div>
                             </div>
                         </div>

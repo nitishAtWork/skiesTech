@@ -74,7 +74,7 @@ const CompanyProfile = (props) => {
               <div className='row h-100 align-items-end'>
                 <div className='w-100 position-realative'>
                   {/* <img className='w-100' loading='lazy' src={process.env.REACT_APP_BASE_URL + "images/pages/" + props.pageData.img} alt={props.pageData.shortDescription} title={props.pageData.shortDescription} /> */}
-                  <img className='w-100' loading='lazy' src="images/img/abt-img.png" alt={props.pageData.shortDescription} title={props.pageData.shortDescription} />
+                  <img className='w-100' loading='lazy' src={process.env.REACT_APP_BASE_URL + "images/pages/" + props.pageData.img} alt={props.pageData.shortDescription} title={props.pageData.shortDescription} />
                   <div className='exp-box'>
                     <img src="images/img/img-2.png" alt={props.pageData.shortDescription} title={props.pageData.shortDescription} />
                   </div>

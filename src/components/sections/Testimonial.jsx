@@ -50,7 +50,7 @@ const Testimonial = () => {
             <div className='container'>
                 <div className='row'>
                     <div className='text-center position-relative'>
-                        <SectionTitle smTitle='Testimonial' mainTitle='Here are some of our most valuable comments.' />
+                        <SectionTitle smTitle='Testimonial' mainTitle='Here Are Some Of Our Most Valuable Comments.' />
                         {/* <span className='title-big'>Testimonials</span> */}
                     </div>
                 </div>

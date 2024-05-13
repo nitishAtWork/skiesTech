@@ -18,7 +18,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const recaptchaRef = React.createRef();
 
-const DistributorSect = () => {
+const ApplySect = () => {
 
     const [siteInfo, setSiteInfo] = useState([]);
     const [products, setProduct] = useState([]);
@@ -26,7 +26,7 @@ const DistributorSect = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [product, setEnquiryProduct] = useState('');
+    const [jobs, setJobs] = useState('');
     const [companyName, setCompanyName] = useState('');
 
     const boxVariant = {
@@ -39,7 +39,7 @@ const DistributorSect = () => {
 
     useEffect(() => {
         getSiteInfo();
-        getProducts();
+        getJobs();
         if (inView) {
             control.start("visible");
         }
@@ -56,11 +56,11 @@ const DistributorSect = () => {
         }
     }
 
-    const getProducts = async () => {
-        let result = await fetch(`${process.env.REACT_APP_BASE_URL}products`)
+    const getJobs = async () => {
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}jobs`)
         result = await result.json();
         if (result.status) {
-            setProduct(result.products);
+            setJobs(result.jobs);
         }
     }
 
@@ -125,12 +125,12 @@ const DistributorSect = () => {
     return (
         <>
             <Toaster position="bottom-right" />
-            <section className='sect-space bg-gry contact-container contact-container2'>
+            <section className='sect-space bg-gry contact-container contact-container3'>
                 <div className='container dist-cont'>
 
                     <div className='row'>
                         <div className='col-lg-7 col-md-6 conta-scls'>
-                            <SectionTitle smTitle="Become a Partner" mainTitle="Join us today and be a part of us" />
+                            <SectionTitle smTitle="Become a member" mainTitle="Join us today and be a part of us" />
 
                             <div className='Contact_box '>
                                 <form onSubmit={handleEnquiryForm}>
@@ -177,50 +177,58 @@ const DistributorSect = () => {
                                                 name='email'
                                                 type='email' />
                                         </div>
+                                       
+                                        <div className='col-lg-6'>
+                                            <TextField
+                                                onChange={e => setCompanyName(e.target.value)}
+                                                label="Previous Company"
+                                                name='companyName'
+                                                type='text' />
+                                        </div>
+                                        <div className='col-lg-6'>
+                                            <TextField label="Experience" name='exp' type='text' />
+                                        </div>
                                         <div className='col-lg-6'>
                                             <FormControl fullWidth>
-                                                <InputLabel id="demo-simple-select-label">Partner as</InputLabel>
+                                                <InputLabel id="demo-simple-select-label">Applying For</InputLabel>
                                                 <Select
-                                                    error={
-                                                        (error && product == '')
-                                                            ?
-                                                            true
-                                                            :
-                                                            false
-                                                    }
-                                                    onChange={e => setEnquiryProduct(e.target.value)}
-                                                    label="Select product"
-                                                    name='product'
+                                                    // error={
+                                                    //     (error && jobs == '')
+                                                    //         ?
+                                                    //         true
+                                                    //         :
+                                                    //         false
+                                                    // }
+                                                    // onChange={e => setJobs(e.target.value)}
+                                                    label="Applying For"
+                                                    name='Post Name'
                                                 // onChange={handleChange}
                                                 >
-                                                    <MenuItem value="1">Distributor</MenuItem>
-                                                    <MenuItem value="1">Dealer</MenuItem>
+                                                    {
+                                                        jobs
+                                                            ?
+                                                            jobs.map((value, index) =>
+                                                                <MenuItem key={index} value={value.postName}>{value.postName}</MenuItem>
+                                                            )
+                                                            :
+                                                            null
+                                                    }
                                                 </Select>
                                             </FormControl>
 
                                         </div>
                                         <div className='col-12'>
-                                            <TextField
-                                                error={
-                                                    (error && companyName == '')
-                                                        ?
-                                                        true
-                                                        :
-                                                        false
-                                                }
-                                                onChange={e => setCompanyName(e.target.value)}
-                                                label="Company Name"
-                                                name='companyName'
-                                                type='text' />
+                                            <TextField label="Heighest Qualification" name='qualification' type='text' />
                                         </div>
                                         <div className='col-12'>
-                                            <TextField label="Gst Number" name='gstno' type='text' />
+                                            <label htmlFor="">Resume</label>
+                                            <TextField  name='resume' type='file' />
                                         </div>
                                         <div className='col-12'>
                                             <TextField label="Address" name='address' type='text' />
                                         </div>
                                         <div className='col-12'>
-                                            <TextField multiline rows={3} label="Write any message..." name='message' type='text' />
+                                            <TextField multiline rows={3} label="Any Extra Curriculum..." name='Achivements' type='text' />
                                         </div>
                                         <div className='col-12 mb-2'>
                                             <ReCAPTCHA
@@ -230,7 +238,7 @@ const DistributorSect = () => {
                                             />
                                         </div>
                                         <div className='col-12'>
-                                            <Button btnType="submit" btnName="Submit Query" />
+                                            <Button btnType="submit" btnName="Submit Application" />
                                         </div>
                                     </div>
                                 </form>
@@ -280,4 +288,4 @@ const DistributorSect = () => {
     )
 }
 
-export default DistributorSect
+export default ApplySect

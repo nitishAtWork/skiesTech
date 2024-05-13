@@ -20,17 +20,6 @@ const Footer = () => {
     const [visitorCount, setVisitorCount] = useState(siteInfo.visitorCount + 1);
     const { pathname } = useLocation();
 
-
-    // const [count, setCount] = useState(0);
-
-    // useEffect(() => {
-    // const storedCount = siteInfo.visitorCount;
-    // const initialCount = storedCount ? siteInfo.visitorCount : 0;
-    // setCount(initialCount + 1);
-    // siteInfo.setSiteInfo("visitorCount", visitorCount + 1);
-
-    // }, []);
-
     const getSiteInfo = async () => {
         let result = await fetch(`${process.env.REACT_APP_BASE_URL}siteInfo`);
         result = await result.json();
@@ -48,24 +37,10 @@ const Footer = () => {
         }
     }
 
-    useEffect(() => {
+      useEffect(() => {
         window.scrollTo(0, 0);
         getSiteInfo();
-        // setVisitorCount(visitorCount + 1);
-        // const url = process.env.REACT_APP_BASE_URL + "adminUpdateSiteInfo";
-        // fetch(
-        //     url,
-        //     {
-        //         method: "POST",
-        //         body: JSON.stringify({ 'visitorCount': visitorCount }),
-        //         headers: { 'Content-Type': 'application/json' },
-        //     }
-        // );
-    }, []);
-
-
-
-
+      }, []);
 
     const actions = [
         { icon: <PhoneForwardedIcon />, name: 'Call Now', href: 'tel:' + siteInfo.primaryPhone },
@@ -81,11 +56,7 @@ const Footer = () => {
                     <div className='container'></div>
                 </div>
                 <div className='footer-main'>
-                    {/* <div className="btm-layer"></div>
-                    <div className="btm-layer2"></div>
-                    <div className="btm-layer3">
-                        <img src={process.env.REACT_APP_BASE_URL + "images/bg/web-development.gif"} alt="" />
-                    </div> */}
+        
                     <div className='container'>
                         <div className='row justify-content-between'>
                             <div className='col-12'>
@@ -129,46 +100,15 @@ const Footer = () => {
                         <div className='container'>
                             <div className='row'>
                                 <div className='col-md-12 '>
-                                    <div className='copy-right-text'><span>Copyright © 2023 by Skiestech | Website Designed & Promoted by Insta Vyapar</span><a href="https://www.instavyapar.com/our-services/digital-marketing/google-promotion.html" target='_blank'>Google Promotion Services in India</a></div>
+                                    <div className='copy-right-text'><span>Copyright © 2024 by Skiestech | Website Designed & Promoted by Insta Vyapar</span><a href="https://www.instavyapar.com/our-services/digital-marketing/google-promotion.html" target='_blank'>Google Promotion Services in India</a></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </footer>
-            <div className='Scroll-top-btn'> <ScrollToTop smooth /></div>
 
-            {/* <div className="preloader">
-                <div class="pl">
-                    <div class="pl__bars">
-                        <div class="pl__bar">
-                            <div class="pl__bar-s"></div>
-                            <div class="pl__bar-t"></div>
-                            <div class="pl__bar-l"></div>
-                            <div class="pl__bar-r"></div>
-                        </div>
-                        <div class="pl__bar">
-                            <div class="pl__bar-s"></div>
-                            <div class="pl__bar-t"></div>
-                            <div class="pl__bar-l"></div>
-                            <div class="pl__bar-r"></div>
-                        </div>
-                        <div class="pl__bar">
-                            <div class="pl__bar-s"></div>
-                            <div class="pl__bar-t"></div>
-                            <div class="pl__bar-l"></div>
-                            <div class="pl__bar-r"></div>
-                        </div>
-                        <div class="pl__bar">
-                            <div class="pl__bar-s"></div>
-                            <div class="pl__bar-t"></div>
-                            <div class="pl__bar-l"></div>
-                            <div class="pl__bar-r"></div>
-                        </div>
-                    </div>
-                </div>
-                <img src={process.env.REACT_APP_BASE_URL + 'images/' + siteInfo.logo} alt={siteInfo.compName} title={siteInfo.compName} />
-            </div> */}
+            <div className='Scroll-top-btn'> <ScrollToTop smooth /></div>
 
             {/* <SpeedDial
                 ariaLabel="SpeedDial basic example"
@@ -184,9 +124,7 @@ const Footer = () => {
                     />
                 ))}
             </SpeedDial> */}
-            {/* <div className="colored-scls fixed-scl">
-                <Socials data={siteInfo} />
-            </div> */}
+        
         </>
     )
 }

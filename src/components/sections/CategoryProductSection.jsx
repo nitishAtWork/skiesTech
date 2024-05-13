@@ -4,7 +4,7 @@ import SectionTitle from '../SectionTitle';
 import ProductCard from '../ProductCard';
 import { TypeAnimation } from 'react-type-animation';
 
-const ProductSection = () => {
+const CategoryProductSection = () => {
   const [products, setProduct] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const ProductSection = () => {
     <section className='sect-space bg-gry'>
       <div className='container'>
         <div className='text-center m-b40'>
-          <SectionTitle smTitle="Products" mainTitle="All Available Products" />
+          <SectionTitle smTitle="Products" mainTitle=" Products" />
         </div>
         <div className='row'>
         {
@@ -51,4 +51,4 @@ const ProductSection = () => {
   )
 }
 
-export default ProductSection
+export default CategoryProductSection

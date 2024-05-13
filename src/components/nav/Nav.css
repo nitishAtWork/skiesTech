@@ -180,6 +180,14 @@ ul{
 .Mainmenu ul li a:hover{
    color: var(--primry-clr);
 }
+.Mainmenu ul li.hasChild ul li.hasChild ul li a:hover,
+.Mainmenu ul li.hasChild ul li.hasChild ul li:hover a,
+.Mainmenu ul li.hasChild ul li.hasChild ul li:hover,
+.Mainmenu ul li.hasChild ul li:hover a,
+.Mainmenu ul li.hasChild ul li a:hover,
+.Mainmenu ul li.hasChild ul li:hover{
+   color: var(--primry-clr);
+}
 .Mainmenu ul li i{
    font-size: 15px;
    color: rgb(92, 92, 92);
@@ -212,36 +220,46 @@ ul{
    z-index: 4;
    margin-left: -25px;
 }
-.Mainmenu ul li.hasChild ul li.hasChild ul,
-.Mainmenu ul li.hasChild ul{
+.Mainmenu ul li.hasChild ul li.hasChild.sub ul,
+.Mainmenu ul li.hasChild.main ul{
    position: absolute;
-   top: 93px;
+   top: 91px;
    left: 0;
-   z-index: 10;
    /* padding-bottom: 12px; */
-   min-width: 340px;
+   min-width: 280px;
    display: inline-block;
    gap: unset;
    background: white;
    box-shadow: 2px 4px 4px rgb(196, 195, 195);
-   transition: all 400ms ease-out;
-   transform: scaleY(0);
+   transition: opacity 400ms ease-out;
+   /* transform: scaleY(0); */
+   z-index: -10;
+   opacity: 0;
+   visibility: hidden;
    transform-origin: top;
-   max-height: 72vh;
-   overflow-y: auto;
+   /* max-height: 72vh;
+   overflow-y: auto; */
+   border-left: 1px solid rgb(199, 197, 197);
 }
+.sub-menu-ul-in,
 .Mainmenu ul li.hasChild ul li.hasChild ul{
-   left: 100%;
-   top: 0;
+   left: 100% !important;
+   top: 0 !important;
+   position: absolute;
 }
 /* .Mainmenu ul li.hasChild:hover:not(.Mainmenu ul li.hasChild ul li.hasChild:hover ul), */
-.Mainmenu ul li.hasChild ul li.hasChild:hover ul,
-.Mainmenu ul li.hasChild:hover ul{
-   transform: scaleY(1);
+.Mainmenu ul li.hasChild ul li.hasChild.sub:hover ul,
+.Mainmenu ul li.hasChild.main:hover ul{
+   /* transform: scaleY(1); */
+   opacity: 1;
+   z-index: 10;
+   visibility: visible;
 }
 .Mainmenu ul li.hasChild ul li.hasChild ul li,
 .Mainmenu ul li.hasChild ul li{
    width: 100%;
+   position: relative;
+   border-bottom: 1px solid rgb(215, 215, 215);
 }
 /* .Mainmenu ul li.hasChild ul li.hasChild ul li a::before,
 .Mainmenu ul li.hasChild ul li a::before{
@@ -273,9 +291,12 @@ ul{
     right: -16px;
     left: -16px;
 } */
-.Mainmenu ul li.hasChild ul li.hasChild ul li a::before,
-/* .Mainmenu ul li.hasChild ul li a::after, */
-.Mainmenu ul li.hasChild ul li a::before{
+.Mainmenu ul li.hasChild ul li.hasChild.sub ul li,
+.Mainmenu ul li.hasChild.main ul li{
+position: relative;
+}
+.Mainmenu ul li.hasChild ul li.hasChild.sub ul li::before,
+.Mainmenu ul li.hasChild.main ul li::before{
   content: "";
    z-index: -1;
    width: 100%;
@@ -298,7 +319,8 @@ transform: rotate(180deg);
 /* .Mainmenu ul li.hasChild ul li a:hover::after{
   transform: rotate(180deg) translateX(100%);
 } */
-.Mainmenu ul li.hasChild ul li a:hover::before{
+.Mainmenu ul li.hasChild ul li.hasChild.sub ul li:hover::before,
+.Mainmenu ul li.hasChild ul li:hover::before{
  height: 100%;
 }
 .Mainmenu ul li.hasChild ul li.hasChild ul li a,
@@ -316,14 +338,7 @@ transform: rotate(180deg);
 /* .Mainmenu ul li.hasChild ul li a:hover{
    overflow: visible;
 } */
-.Mainmenu ul li.hasChild ul li.hasChild ul li a:hover,
-.Mainmenu ul li.hasChild ul li.hasChild ul li:hover a,
-.Mainmenu ul li.hasChild ul li.hasChild ul li:hover,
-.Mainmenu ul li.hasChild ul li:hover a,
-.Mainmenu ul li.hasChild ul li a:hover,
-.Mainmenu ul li.hasChild ul li:hover{
-   color: white;
-}
+
 .menuBtn{
    display: none;
    justify-content: center;
@@ -458,7 +473,7 @@ transform: rotate(180deg);
    box-shadow: 0px 0px 4px gray;
    transform: translateX(-100vw);
    transition: all 500ms;
-   padding-bottom: 150px;
+   padding-bottom: 50px;
 }
 .phone-nav-overlay.active{
    width: 86vw;
@@ -498,7 +513,7 @@ transform: rotate(180deg);
 .phone-nav ul li a{
    padding: 14px 22px;
    display: inline-block;
-   font-size: 15px;
+   font-size: 13px;
    color: rgb(92, 92, 92);
    font-weight: 600;
    text-decoration: none;
@@ -556,7 +571,7 @@ transform: rotate(180deg);
 }
 .phone-nav ul li.hasChild ul li.hasChild ul li a,
 .phone-nav ul li.hasChild ul li a{
-   padding: 12px 25px;
+   padding: 10px 15px;
 }
 
 /* !END: Header Topbar CSS */

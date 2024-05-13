@@ -11,8 +11,12 @@ function SiteInfo() {
     const [compName, setCompName] = useState('');
     const [primaryMail, setPrimaryMail] = useState('');
     const [secondaryMail, setSecondaryMail] = useState('');
+    const [thirdMail, setThirdMail] = useState('');
+    const [fourthMail, setFourthMail] = useState('');
     const [primaryPhone, setPrimaryPhone] = useState('');
     const [secondaryPhone, setSecondaryPhone] = useState('');
+    const [thirdPhone, setThirdPhone] = useState('');
+    const [fourthPhone, setFourthPhone] = useState('');
     const [logo, setLogo] = useState('');
     const [favicon, setFavicon] = useState('');
     const [primaryAddress, setPrimaryAddress] = useState('');
@@ -45,8 +49,12 @@ function SiteInfo() {
             setCompName(result.siteInfo.compName);
             setPrimaryMail(result.siteInfo.primaryMail);
             setSecondaryMail(result.siteInfo.secondaryMail);
+            setThirdMail(result.siteInfo.thirdMail);
+            setFourthMail(result.siteInfo.fourthMail);
             setPrimaryPhone(result.siteInfo.primaryPhone);
             setSecondaryPhone(result.siteInfo.secondaryPhone);
+            setThirdPhone(result.siteInfo.thirdPhone);
+            setFourthPhone(result.siteInfo.secondaryfourthPhone);
             setLogo(result.siteInfo.logo);
             setFavicon(result.siteInfo.favicon);
             setPrimaryAddress(result.siteInfo.primaryAddress);
@@ -75,8 +83,12 @@ function SiteInfo() {
         data.append("compName", compName);
         data.append("primaryMail", primaryMail);
         data.append("secondaryMail", secondaryMail);
+        data.append("thirdMail", thirdMail);
+        data.append("fourthMail", fourthMail);
         data.append("primaryPhone", primaryPhone);
         data.append("secondaryPhone", secondaryPhone);
+        data.append("thirdPhone", thirdPhone);
+        data.append("fourthPhone", fourthPhone);
         data.append("logo", logo);
         data.append("favicon", favicon);
         data.append("primaryAddress", primaryAddress);
@@ -147,6 +159,24 @@ function SiteInfo() {
                                 </div>
                                 <div className='col-md-6'>
                                     <AddData
+                                        value={thirdMail}
+                                        changeFunction={setThirdMail}
+                                        Label="Third Mail"
+                                        inputType="text"
+                                        Placeholder="Email"
+                                    />
+                                </div>
+                                <div className='col-md-6'>
+                                    <AddData
+                                        value={fourthMail}
+                                        changeFunction={setFourthMail}
+                                        Label="Fourth Mail"
+                                        inputType="text"
+                                        Placeholder="Email"
+                                    />
+                                </div>
+                                <div className='col-md-6'>
+                                    <AddData
                                         value={primaryPhone}
                                         changeFunction={setPrimaryPhone}
                                         Label="Primary Phone"
@@ -159,6 +189,24 @@ function SiteInfo() {
                                         value={secondaryPhone}
                                         changeFunction={setSecondaryPhone}
                                         Label="Secondary Phone"
+                                        inputType="text"
+                                        Placeholder="Phone"
+                                    />
+                                </div>
+                                <div className='col-md-6'>
+                                    <AddData
+                                        value={thirdPhone}
+                                        changeFunction={setThirdPhone}
+                                        Label="Third Phone"
+                                        inputType="text"
+                                        Placeholder="Phone"
+                                    />
+                                </div>
+                                <div className='col-md-6'>
+                                    <AddData
+                                        value={fourthPhone}
+                                        changeFunction={setFourthPhone}
+                                        Label="Fourth Phone"
                                         inputType="text"
                                         Placeholder="Phone"
                                     />

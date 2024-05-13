@@ -10,7 +10,7 @@ function MarketPlaceSec(props) {
         <section className='sect-space p-t30'>
             <div className='container'>
                 <div className='text-center'>
-                    <SectionTitle smTitle='Market Place' />
+                    <SectionTitle smTitle='Market Place' mainTitle="Market Place" />
                 </div>
                 <div className='row m-t30'>
                     {

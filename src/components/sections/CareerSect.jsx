@@ -76,7 +76,7 @@ const CareerSect = () => {
                                       {Parser().parse(value.jobDescription)}
                                     </div>
                                     <div className='my-3'>
-                                        <BtnLink Href='/contact' btnName="Apply Now" />
+                                        <BtnLink Href='/apply' btnName="Apply Now" />
                                     </div>
                                 </div>
                             </div>

@@ -15,13 +15,13 @@ const HasChildMenu = (props) => {
     };
 
     return (
-        <li className='hasChild'>
+        <li className='hasChild main'>
             <Link onClick={closeMenu} to={"/products"}>
                 <span>{props.servName} <i class="fa-solid fa-plus"></i><i class="fa-solid fa-minus"></i></span>
             </Link>
             <i onClick={toggleDropdown} className="fa-solid fa-angle-down"></i>
             <ul className={isOpen ? 'active' : ''}>
-                {props.servChild}
+                {props.catChild}
             </ul>
         </li>
     )

@@ -30,7 +30,7 @@ function Subdomain(props) {
             <HelmetComp metaData={subdomain} />
             <Nav data={subdomain} />
             <BreadCrumb name={subdomain.shortDescription} />
-            <SubdomainSec data={subdomain} />
+            <SubdomainSec data={subdomain} hTwoTitle={subdomain.shortDescription} />
             <ContactSect />
             <Footer />
         </>

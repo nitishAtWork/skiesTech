@@ -23,6 +23,7 @@ const HomeBanner = lazy(() => import('../components/sections/HomeBanner'));
 const Home = () => {
 
   const [homeData, setHomeData] = useState([]);
+  const [loadedData, setLoadedData] = useState(null);
 
   useEffect(() => {
     getHomeData();
@@ -31,6 +32,7 @@ const Home = () => {
   const getHomeData = async () => {
     let result = await fetch(`${process.env.REACT_APP_BASE_URL}home`);
     result = await result.json();
+    setLoadedData(result);
     if (result.status) {
       setHomeData(result.home);
     }
@@ -38,21 +40,28 @@ const Home = () => {
 
   return (
     <>
+      {loadedData ? (
+        <>
+          <Nav />
+          <Suspense fallback={<PreLoader />}>
+            <HomeBanner />
+          </Suspense>
+          <WhyChoose />
+          <Suspense fallback={<PreLoader />}>
+            <CompanyProfile pageData={homeData} homeTitle={homeData.shortDescription} />
+          </Suspense>
+          <Suspense fallback={<PreLoader />}>
+            <ProductSection />
+          </Suspense>
+          <Testimonial />
+          <ContactSect />
+          <Footer />
+        </>
+      ) : (
+        <PreLoader />
+      )}
       {/* <HelmetComp metaData={homeData} /> */}
-      <Nav />
-      <Suspense fallback={ <PreLoader />}>
-        <HomeBanner />
-      </Suspense>
-      <WhyChoose />
-      <Suspense fallback={<PreLoader />}>
-        <CompanyProfile pageData={homeData} homeTitle={homeData.shortDescription} />
-      </Suspense>
-      <Suspense fallback={<PreLoader />}>
-        <ProductSection />
-      </Suspense>
-      <Testimonial />
-      <ContactSect />
-      <Footer />
+
 
     </>
   )

@@ -16,42 +16,42 @@ const Socials = (props) => {
                         {
                             props.data.twitter
                                 ?
-                                <li><a href={props.data.twitter}><XIcon /></a></li>
+                                <li><a target='_blank' href={props.data.twitter}><XIcon /></a></li>
                                 :
                                 null
                         }
                         {
                             props.data.whatsapp
                                 ?
-                                <li><a href={'https://api.whatsapp.com/send?phone'+props.data.whatsapp}><WhatsAppIcon /></a></li>
+                                <li><a target='_blank' href={'https://api.whatsapp.com/send?phone='+props.data.whatsapp}><WhatsAppIcon /></a></li>
                                 :
                                 null
                         }
                         {
                             props.data.instagram
                                 ?
-                                <li><a href={props.data.instagram}><InstagramIcon /></a></li>
+                                <li><a target='_blank' href={props.data.instagram}><InstagramIcon /></a></li>
                                 :
                                 null
                         }
                         {
                             props.data.facebook
                                 ?
-                                <li><a href={props.data.facebook}><FacebookOutlinedIcon /></a></li>
+                                <li><a target='_blank' href={props.data.facebook}><FacebookOutlinedIcon /></a></li>
                                 :
                                 null
                         }
                         {
                             props.data.youtube
                                 ?
-                                <li><a href={props.data.youtube}><SubscriptionsIcon /></a></li>
+                                <li><a target='_blank' href={props.data.youtube}><SubscriptionsIcon /></a></li>
                                 :
                                 null
                         }
                         {
                             props.data.linkedIn
                                 ?
-                                <li><a href={props.data.linkedIn}><LinkedInIcon /></a></li>
+                                <li><a target='_blank' href={props.data.linkedIn}><LinkedInIcon /></a></li>
                                 :
                                 null
                         }

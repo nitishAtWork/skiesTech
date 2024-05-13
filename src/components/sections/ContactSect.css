@@ -41,6 +41,19 @@
     top: 0;
     z-index: 2;
 }
+.contact-container3::before{
+    background: url(../../../public/images/bg/contact_form_bgmay.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
 .Contact_box form{
     position: relative;
     z-index: 5;

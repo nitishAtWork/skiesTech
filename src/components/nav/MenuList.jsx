@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HasChildMenu from './HasChildMenu';
 import ChildMenu from './ChildMenu';
+import SubChildMenu from './SubChildMenu';
 
 const MenuList = (props) => {
 
     const categories = props.categories;
+
+    // const closeMenu = () => {
+    //     props.closeMenu(false);
+    // };
+
+    const [isOpen, setIsopen] = useState(false);
+    const toggleDropdown = () => {
+        setIsopen(!isOpen);
+    }
 
     const closeMenu = () => {
         props.closeMenu(false);
@@ -14,29 +24,19 @@ const MenuList = (props) => {
     return (
         <ul>
             <li className='active'><Link onClick={closeMenu} to="/"><span>Home</span></Link></li>
+            <HasChildMenu
+                to={"/products"}
+                closeMenu={closeMenu}
+                servName={"Products"}
+                catChild={
+                    <ChildMenu
+                        // data={props.data}
+                        closeMenu={closeMenu}
+                        catChild={categories}
+                    />
+                }
+            />
 
-            {
-                categories
-                    ?
-                    categories.map((value, index) =>
-                        <HasChildMenu
-                            key={index}
-                            to={value.slug}
-                            closeMenu={closeMenu}
-                            
-                            servName={value.name}
-                            servChild={
-                                <ChildMenu
-                                    data={props.data}
-                                    closeMenu={closeMenu}
-                                    servChild={value.products}
-                                />
-                            }
-                        />
-                    )
-                    :
-                    null
-            }
 
             <li ><Link onClick={closeMenu} to="/company-profile"> <span>Company Profile</span> </Link></li>
 

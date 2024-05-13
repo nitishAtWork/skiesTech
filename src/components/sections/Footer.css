@@ -1,7 +1,5 @@
 .Footer-top{
     width: 100%;
-    /* padding-top: 100px; */
-    /* border-top: 1px solid rgb(218, 216, 216); */
 }
 .footer-main{
     background: var(--primry-clr);
@@ -9,6 +7,11 @@
     position: relative;
     overflow: hidden;
     clip-path: ellipse(95% 100% at 50% 100%);
+}
+@media (max-width: 768px) {
+    .footer-main {
+        clip-path: ellipse(147% 100% at 50% 100%);
+    }
 }
 .footer-main .container{
     position: relative;

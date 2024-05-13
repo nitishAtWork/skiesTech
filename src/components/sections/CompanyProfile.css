@@ -11,6 +11,10 @@
     position: relative;
     /* padding-bottom: 100px; */
 }
+.about-section .thm-btn{
+    margin-left: 15px;
+    display: block;
+}
 .exp-box{
     width: 250px;
     height: fit-content;
@@ -28,6 +32,7 @@
 @media (max-width:600px) {
     .exp-box{
         border: 5px solid var(--secondary-clr);
+        width: 100px;
     }
 }
 .about-right-shape,

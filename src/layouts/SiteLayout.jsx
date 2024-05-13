@@ -7,6 +7,7 @@ const Home = lazy(() => import('../pages/Home'));
 const Contact = lazy(() => import('../pages/Contact'));
 const Distributor = lazy(() => import('../pages/Distributor'));
 const Career = lazy(() => import('../pages/Career'));
+const Apply = lazy(() => import('../pages/Apply'));
 const Sitemap = lazy(() => import('../pages/Sitemap'));
 const MarketPlace = lazy(() => import('../pages/MarketPlace'));
 const Products = lazy(() => import('../pages/Products'));
@@ -54,9 +55,9 @@ function SiteLayout() {
         <Route path='/contact' element={<Suspense fallback={<PreLoader />}><Contact /></Suspense>} />
         <Route path='/partner' element={<Suspense fallback={<PreLoader />}><Distributor /></Suspense>} />
         <Route path='/career' element={<Suspense fallback={<PreLoader />}><Career /></Suspense>} />
+        <Route path='/apply' element={<Suspense fallback={<PreLoader />}><Apply /></Suspense>} />
         <Route path='/sitemap' element={<Suspense fallback={<PreLoader />}><Sitemap /></Suspense>} />
         <Route path='/market-place' element={<Suspense fallback={<PreLoader />}><MarketPlace /></Suspense>} />
-        <Route path='/google35da33f130a69c13.html' element="google-site-verification: google35da33f130a69c13.html" />
         {
           products
             ?

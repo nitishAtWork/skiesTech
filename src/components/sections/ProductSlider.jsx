@@ -8,8 +8,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 // import required modules
 import { Autoplay, Navigation } from 'swiper/modules';
-// import ProductCard from '../ProductCard';
 import ProductCard from '../ProductCard';
+import SectionTitle from '../SectionTitle';
 
 const ProductSlider = () => {
 
@@ -32,7 +32,7 @@ const ProductSlider = () => {
       <section className='sect-space  product-sect'>
         <div className='container'>
           <div className='text-center'>
-            {/* <SectionTitle smTitle='Services' mainTitle={} /> */}
+          <SectionTitle smTitle="Products" mainTitle="Related Products" />
           </div>
           <div className=' m-t30'>
             <Swiper
@@ -79,6 +79,7 @@ const ProductSlider = () => {
                         servPrice={value.price}
                         servLink={'/' + value.slug}
                         servImg={value.img}
+                        Pdf={'/images/pdf/' +value.pdf}
                       />
                     </SwiperSlide>
                   )

@@ -2,20 +2,20 @@ import React from 'react'
 import Nav from '../components/nav/Nav';
 import BreadCrumb from '../components/sections/BreadCrumb'
 import ContactSect from '../components/sections/ContactSect'
-import ProductSection from '../components/sections/ProductSection';
+import CategoryProductSection from '../components/sections/CategoryProductSection';
 // import HelmetComp from '../components/HelmetComp';
 import Footer from '../components/sections/Footer';
 
-const Products = () => {
+const CategoryProducts = () => {
   return (
     <>
       <Nav />
-      <BreadCrumb name="All Products" />
-      <ProductSection />
+      <BreadCrumb name="Products" />
+      <CategoryProductSection />
       <ContactSect />
       <Footer />
     </>
   )
 }
 
-export default Products
+export default CategoryProducts
