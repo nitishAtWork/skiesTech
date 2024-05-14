@@ -17,7 +17,7 @@ const ChildMenu = (props) => {
     return (
         props.catChild.map((value, index) =>
             <li key={index} className='hasChild sub'>
-                <Link onClick={closeMenu} to={"/products"}>
+                <Link onClick={closeMenu} to={"/"+value.slug}>
                     <span>{value.name} <i class="fa-solid fa-plus"></i><i class="fa-solid fa-minus"></i></span>
                 </Link>
                 <i onClick={toggleDropdown} className="fa-solid fa-angle-down"></i>

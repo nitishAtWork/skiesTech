@@ -37,9 +37,9 @@ function ProductList(props) {
             <BreadCrumb name={promotionalCategory.name} />
             <section className='sect-space p-t30'>
                 <div className='container'>
-                    <div className='text-center'>
+                    {/* <div className='text-center'>
                         <SectionTitle smTitle='Products' />
-                    </div>
+                    </div> */}
                     <div className='row m-t30'>
                         {
                             products

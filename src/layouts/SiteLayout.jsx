@@ -12,6 +12,7 @@ const Sitemap = lazy(() => import('../pages/Sitemap'));
 const MarketPlace = lazy(() => import('../pages/MarketPlace'));
 const Products = lazy(() => import('../pages/Products'));
 const ProductDetail = lazy(() => import('../pages/ProductDetail'));
+const CategoryDetail = lazy(() => import('../pages/CategoryDetail'));
 const ProductList = lazy(() => import('../components/sections/ProductList'));
 const Subdomain = lazy(() => import('../pages/Subdomain'));
 const OurPresenceInCity = lazy(() => import('../pages/OurPresenceInCity'));
@@ -22,12 +23,21 @@ function SiteLayout() {
   const [products, setProduct] = useState([]);
   const [locations, setLocations] = useState([]);
   const [promotionalCategories, setPromotionalCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   const getProducts = async () => {
     let result = await fetch(`${process.env.REACT_APP_BASE_URL}products`);
     result = await result.json();
     if (result.status) {
       setProduct(result.products);
+    }
+  }
+
+  const getCategories = async () => {
+    let result = await fetch(`${process.env.REACT_APP_BASE_URL}categories`);
+    result = await result.json();
+    if (result.status) {
+        setCategories(result.data);
     }
   }
 
@@ -43,6 +53,7 @@ function SiteLayout() {
   useEffect(() => {
     getProducts();
     getMarketPlace();
+    getCategories();
   }, [])
 
   return (
@@ -63,6 +74,15 @@ function SiteLayout() {
             ?
             products.map((value, index) =>
               <Route key={index} path={'/' + value.slug} element={<Suspense fallback={<PreLoader />}><ProductDetail slug={value.slug} /></Suspense>} />
+            )
+            :
+            null
+        }
+        {
+          categories
+            ?
+            categories.map((value, index) =>
+              <Route key={index} path={'/' + value.slug} element={<Suspense fallback={<PreLoader />}><CategoryDetail slug={value.slug} /></Suspense>} />
             )
             :
             null

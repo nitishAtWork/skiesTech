@@ -138,7 +138,7 @@ function CategoryData() {
                                 <div className='col-12'>
                                     <AddDataEditor Label="Extra Description" Editor={<Jodit value={extraDefaultDescription} name="extraDescription" description={setExtraContent} />} />
                                 </div>
-                                {/* <div className='col-12'>
+                                <div className='col-12'>
                                     <AddData changeFunction={setMetaTitle} value={metaTitle} Label="Meta Title" Placeholder="Meta Title" name="metaTitle" inputType="text" />
                                 </div>
                                 <div className='col-12 textarea-box mt-3 mb-2'>
@@ -148,7 +148,7 @@ function CategoryData() {
                                 <div className='col-12 textarea-box mt-3 mb-2'>
                                     <label htmlFor="">Meta Keyword :</label>
                                     <textarea onChange={(e) => setMetaKeywords(e.target.value)} value={metaKeywords} name="metaKeywords" cols="30" rows="10" placeholder='Meta Keyword'></textarea>
-                                </div> */}
+                                </div>
                                 <div className='row justify-content-end'>
                                     <button type='submit' className='btn btn-primary mt-2 float-right w-fit col-auto mx-2'>Save Data</button>
                                 </div>

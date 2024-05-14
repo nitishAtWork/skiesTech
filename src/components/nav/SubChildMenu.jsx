@@ -5,7 +5,6 @@ const SubChildMenu = (props) => {
     const closeMenu = () => {
         props.closeMenu(false);
     };
-    console.log(props)
     return (
         props.servChild.map((value, index) =>
             <li key={index}>
