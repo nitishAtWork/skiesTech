@@ -17,6 +17,7 @@ const WhyChoose = lazy(() => import('../components/sections/WhyChoose'));
 const CompanyProfile = lazy(() => import('../components/sections/CompanyProfile'));
 const ProductSlider = lazy(() => import('../components/sections/ProductSlider'));
 const ProductSection = lazy(() => import('../components/sections/ProductSection'));
+const CategoriesSect = lazy(() => import('../components/sections/CategoriesSect'));
 const WelcomeText = lazy(() => import('../components/sections/WelcomeText'));
 const HomeBanner = lazy(() => import('../components/sections/HomeBanner'));
 
@@ -51,7 +52,7 @@ const Home = () => {
             <CompanyProfile pageData={homeData} homeTitle={homeData.shortDescription} />
           </Suspense>
           <Suspense fallback={<PreLoader />}>
-            <ProductSection />
+            <CategoriesSect />
           </Suspense>
           <Testimonial />
           <ContactSect />

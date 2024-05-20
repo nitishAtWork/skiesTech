@@ -61,7 +61,7 @@ function SiteLayout() {
       {/* <Nav></Nav> */}
       <Routes>
         <Route path='/' element={<Suspense fallback={<PreLoader />}><Home /></Suspense>} />
-        <Route path='/products' element={<Suspense fallback={<PreLoader />}><Products /></Suspense>} />
+        <Route path='/product' element={<Suspense fallback={<PreLoader />}><Products /></Suspense>} />
         <Route path='/company-profile' element={<Suspense fallback={<PreLoader />}><About /></Suspense>} />
         <Route path='/contact' element={<Suspense fallback={<PreLoader />}><Contact /></Suspense>} />
         <Route path='/partner' element={<Suspense fallback={<PreLoader />}><Distributor /></Suspense>} />

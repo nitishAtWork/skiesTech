@@ -32,7 +32,7 @@ const ProductSlider = () => {
       <section className='sect-space  product-sect'>
         <div className='container'>
           <div className='text-center'>
-          <SectionTitle smTitle="Products" mainTitle="Related Products" />
+          <SectionTitle smTitle="Products" mainTitle="Explore Our Products" />
           </div>
           <div className=' m-t30'>
             <Swiper

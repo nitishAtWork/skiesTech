@@ -16,7 +16,7 @@ const HasChildMenu = (props) => {
 
     return (
         <li className='hasChild main'>
-            <Link onClick={closeMenu} to={"/products"}>
+            <Link onClick={closeMenu} to={"/product"}>
                 <span>{props.servName} <i class="fa-solid fa-plus"></i><i class="fa-solid fa-minus"></i></span>
             </Link>
             <i onClick={toggleDropdown} className="fa-solid fa-angle-down"></i>

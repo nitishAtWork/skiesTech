@@ -98,7 +98,7 @@ const WhyChoose = () => {
           <div className='col-lg-6 m-t30'>
 
             <div className='why-img'>
-              <img className='cert-img' src={"images/img/certificate.png"} alt="" />
+              <img className='cert-img' src={process.env.REACT_APP_BASE_URL +"images/img/certificate.jpg"} alt="" />
             </div>
             {/* <div className='row align-items-center m-t40'>
               <div className='col-auto'><BtnLink Href="/contact" btnName="Contact Now" /></div>

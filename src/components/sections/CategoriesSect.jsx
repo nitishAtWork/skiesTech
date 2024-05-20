@@ -1,37 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { Parser } from 'html-to-react'
 import SectionTitle from '../SectionTitle';
-import ProductCard from '../ProductCard';
+import CategoriesCard from '../CategoriesCard';
 import { TypeAnimation } from 'react-type-animation';
+import BtnLink from '../BtnLink';
 
-const CategoryProductSection = () => {
-  const [products, setProduct] = useState([]);
+const CategoriesSect = () => {
+    const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    getProducts();
+    getCategories();
   }, []);
 
-  const getProducts = async () => {
-    let result = await fetch(`${process.env.REACT_APP_BASE_URL}products`)
+  const getCategories = async () => {
+    let result = await fetch(`${process.env.REACT_APP_BASE_URL}/categories`);
     result = await result.json();
     if (result.status) {
-      setProduct(result.products);
+        setCategories(result.data);
     }
-  }
+};
 
   return (
     <section className='sect-space bg-gry'>
       <div className='container'>
         <div className='text-center m-b40'>
-          <SectionTitle smTitle="Products" mainTitle=" Products" />
+          <SectionTitle smTitle="Categories" mainTitle="All Available Product Categories" />
         </div>
-        <div className='row'>
+        <div className='row '>
         {
-            products
+            categories
               ?
-              products.map((value, index) =>
+              categories.map((value, index) =>
               <div key={index} className=' col-lg-3 col-md-4 col-sm-6 m-b30'>
-              <ProductCard
+              <CategoriesCard
                 productName={value.name}
                 servDesc={Parser().parse(value.description)}
                 servPrice={value.price}
@@ -46,9 +47,10 @@ const CategoryProductSection = () => {
           }
 
         </div>
+        <div className="text-center"><BtnLink Href="/product" btnName="View All Products"/></div>
       </div>
     </section>
   )
 }
 
-export default CategoryProductSection
+export default CategoriesSect

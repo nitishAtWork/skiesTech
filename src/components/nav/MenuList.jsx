@@ -25,7 +25,7 @@ const MenuList = (props) => {
         <ul>
             <li className='active'><Link onClick={closeMenu} to="/"><span>Home</span></Link></li>
             <HasChildMenu
-                to={"/products"}
+                to={"/product"}
                 closeMenu={closeMenu}
                 servName={"Products"}
                 catChild={

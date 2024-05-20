@@ -15,6 +15,7 @@ const ProductDetail = (props) => {
 
   useEffect(() => {
     getProduct();
+    window.scrollTo(0, 0);
   }, [param]);
 
   const getProduct = async () => {

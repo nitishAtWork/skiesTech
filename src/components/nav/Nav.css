@@ -378,6 +378,12 @@ ul{
    top: 0 !important;
    position: absolute;
 }
+@media (min-width: 768px) {
+   .Mainmenu ul li.hasChild.main ul.sub-menu-ul-in{
+      max-height: 290px;
+      overflow-y: auto;
+   }
+}
 /* .Mainmenu ul li.hasChild:hover:not(.Mainmenu ul li.hasChild ul li.hasChild:hover ul), */
 .Mainmenu ul li.hasChild ul li.hasChild.sub:hover ul,
 .Mainmenu ul li.hasChild.main:hover ul{
@@ -456,7 +462,7 @@ transform: rotate(180deg);
 }
 .Mainmenu ul li.hasChild ul li.hasChild ul li a,
 .Mainmenu ul li.hasChild ul li a{
-   padding: 12px 25px;
+   padding: 6px 18px;
    z-index: 2;
    width: 100%;
    color: rgb(92, 92, 92);
