@@ -20,7 +20,7 @@ const HelmetComp = (props) => {
 
     return (
         <Helmet>
-            <meta name="twitter:card" content="summary" />
+            {/* <meta name="twitter:card" content="summary" />
 
             <meta name="twitter:site" content="@instantwebtech" />
 
@@ -40,7 +40,11 @@ const HelmetComp = (props) => {
 
             <meta property="og:type" content="website" />
 
-            <meta property="og:image" content="https://www.instantwebtech.com/images/banners/banner-1-1711952132465.webp" />
+            <meta property="og:image" content="https://www.instantwebtech.com/images/banners/banner-1-1711952132465.webp" /> */}
+
+            <link rel="canonical" href={window.location.href} />
+
+            <meta name="author" content={siteInfo.compName} />
 
             <link href={process.env.REACT_APP_BASE_URL + 'images/' + siteInfo.favicon} rel="shortcut icon" type="image/png" />
             {Parser().parse(siteInfo.googleAnalytic)}
@@ -48,7 +52,7 @@ const HelmetComp = (props) => {
             <meta name="keywords" content={props.metaData.metaKeywords} />
             <meta name="description" content={props.metaData.metaDescription} />
 
-            <script type="application/ld+json">
+            {/* <script type="application/ld+json">
                 {`
                     "@context": "https://schema.org",
                     "@type": "LocalBusiness",
@@ -115,7 +119,7 @@ const HelmetComp = (props) => {
             "sameAs": "${`${window.location.href}`}"
             `
                 }
-            </script>
+            </script> */}
 
         </Helmet>
     )

@@ -30,7 +30,7 @@ const MenuList = (props) => {
                 servName={"Products"}
                 catChild={
                     <ChildMenu
-                        // data={props.data}
+                        data={props.data}
                         closeMenu={closeMenu}
                         catChild={categories}
                     />

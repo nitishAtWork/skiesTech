@@ -11,7 +11,7 @@ const ProductDetailSect = (props) => {
                     <div className="abt-floated">
                        <img className='w-100' src={process.env.REACT_APP_BASE_URL + "images/categories/" + props.category.img} alt={props.category.name} title={props.category.name} />
                     </div>
-                    <SectionTitle smTitle="Service Details" hTwoTitle={props.hTwoTitle} mainTitle={props.category.shortDescription} />
+                    <SectionTitle smTitle="Product Details" hTwoTitle={props.hTwoTitle} mainTitle={props.category.shortDescription} />
                     {Parser().parse(props.category.description)}
                     {Parser().parse(props.category.extraDescription)}
                 </div>

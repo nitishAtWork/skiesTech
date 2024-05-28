@@ -30,10 +30,10 @@ function Lead() {
         { name: 'Email' },
         { name: 'Phone' },
         { name: 'Product' },
-        { name: 'Company Name' },
+        // { name: 'Company Name' },
         { name: 'Message' },
         { name: 'Address' },
-        { name: 'IP' },
+        // { name: 'IP' },
         { name: 'Date' },
     ];
 
@@ -47,10 +47,10 @@ function Lead() {
                     value.email,
                     value.phone,
                     value.product,
-                    value.companyName,
+                    // value.companyName,
                     value.message,
                     value.address,
-                    value.ip,
+                    // value.ip,
                     value.date,
                 ]
             )

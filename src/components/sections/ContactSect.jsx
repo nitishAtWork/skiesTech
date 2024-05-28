@@ -126,7 +126,7 @@ const ContactSect = () => {
 
     return (
         <>
-            <Toaster position="bottom-right" />
+            <Toaster position="top-left" />
             <section className='sect-space bg-gry contact-container contact-container1'>
                 <div className='container'>
 

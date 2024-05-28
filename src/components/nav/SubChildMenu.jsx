@@ -16,6 +16,7 @@ const SubChildMenu = (props) => {
                             "/" + props.data.slug + "/" + value.slug
                             :
                             "/" + value.slug
+
                     }
                 >
 

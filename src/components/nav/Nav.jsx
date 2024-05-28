@@ -202,13 +202,13 @@ const Nav = (props) => {
                                                 null
 
                                         }
-                                        {
+                                        {/* {
                                             searchData.resultCat
                                                 ?
                                                 searchData.resultPd.map((value) =>
                                                     <div key={value._id} className="col-lg-3 col-md-4 col-sm-6">
                                                         <Link to={'/' + value.slug} className="searched-pd">
-                                                            <img src={process.env.REACT_APP_BASE_URL + "images/caotegories/"+value.img} alt={value.name} />
+                                                            <img src={process.env.REACT_APP_BASE_URL + "images/categories/"+value.img} alt={value.name} />
                                                             <div className="scrch-pd-detail">
                                                                 <Link to={'/' + value.slug} className='pd-nme' >{value.name}</Link>
                                                                 <p className="pd-srch-desc">
@@ -222,7 +222,7 @@ const Nav = (props) => {
                                                 :
                                                 null
 
-                                        }
+                                        } */}
                                         
                                     </div>
                                 </div>

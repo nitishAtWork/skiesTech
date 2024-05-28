@@ -9,10 +9,12 @@ function ProductList(props) {
 
     const [products, setProduct] = useState([]);
     const [promotionalCategory, setPromotionalCategory] = useState([]);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         getProducts();
         getPromotionalCategory();
+        getCategories();
     }, []);
 
     const getPromotionalCategory = async () => {
@@ -31,6 +33,15 @@ function ProductList(props) {
         }
     }
 
+    const getCategories = async () => {
+        let result = await fetch(`${process.env.REACT_APP_BASE_URL}/categories`);
+        result = await result.json();
+        if (result.status) {
+            setCategories(result.data);
+        }
+    };
+
+
     return (
         <>
             <Nav />
@@ -41,6 +52,17 @@ function ProductList(props) {
                         <SectionTitle smTitle='Products' />
                     </div> */}
                     <div className='row m-t30'>
+                        {
+                            categories
+                                ?
+                                categories.map((value, index) =>
+                                    <div key={index} className='col-lg-3 col-md-4 col-sm-6 m-b20'>
+                                        <MarketBtn Href={'/' + props.slug + '/' + value.slug} locationName={value.name} />
+                                    </div>
+                                )
+                                :
+                                null
+                        }
                         {
                             products
                                 ?

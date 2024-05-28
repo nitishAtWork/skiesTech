@@ -15,8 +15,10 @@ const ProductDetail = lazy(() => import('../pages/ProductDetail'));
 const CategoryDetail = lazy(() => import('../pages/CategoryDetail'));
 const ProductList = lazy(() => import('../components/sections/ProductList'));
 const Subdomain = lazy(() => import('../pages/Subdomain'));
+const CatSubdomain = lazy(() => import('../pages/CatSubdomain'));
 const OurPresenceInCity = lazy(() => import('../pages/OurPresenceInCity'));
 const KeywordInCity = lazy(() => import('../pages/KeywordInCity'));
+const CatKeywordInCity = lazy(() => import('../pages/CatKeywordInCity'));
 
 function SiteLayout() {
 
@@ -110,6 +112,20 @@ function SiteLayout() {
                     :
                     null
                 }
+               
+                {
+                  categories
+                    ?
+                    categories.map((item, key) =>
+                      <Route
+                        key={key}
+                        path={'/' + value.slug + "/" + item.slug}
+                        element={<Suspense fallback={<PreLoader />}><CatSubdomain categorySlug={value.slug} pdCategorySlug={item.slug} /></Suspense>}
+                      />
+                    )
+                    :
+                    null
+                }
               </>
             )
             :
@@ -142,6 +158,26 @@ function SiteLayout() {
                     null
                 }
                 {
+                  categories
+                    ?
+                    categories.map((item, key) =>
+                      <Route
+                        key={key}
+                        path={'/' + value.parentSlug + '/' + item.slug}
+                        element={
+                          <Suspense fallback={<PreLoader />}>
+                            <CatKeywordInCity
+                              locationSlug={value.parentSlug}
+                              catProductSlug={item.slug}
+                            />
+                          </Suspense>
+                        }
+                      />
+                    )
+                    :
+                    null
+                }
+                {
                   value.cities.map((item, key) =>
                     <>
                       <Route key={key} path={'/' + item.slug} element={
@@ -161,6 +197,26 @@ function SiteLayout() {
                                   <KeywordInCity
                                     locationSlug={item.slug}
                                     productSlug={val.slug}
+                                  />
+                                </Suspense>
+                              }
+                            />
+                          )
+                          :
+                          null
+                      }
+                      {
+                        categories
+                          ?
+                          categories.map((valTow, iTwo) =>
+                            <Route
+                              key={iTwo}
+                              path={'/' + item.slug + '/' + valTow.slug}
+                              element={
+                                <Suspense fallback={<PreLoader />}>
+                                  <CatKeywordInCity
+                                    locationSlug={item.slug}
+                                    catProductSlug={valTow.slug}
                                   />
                                 </Suspense>
                               }
